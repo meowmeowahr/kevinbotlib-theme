@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "PyQtDarkTheme"
+name = "kevinbotlib-theme"
 version = "2.1.0"
-description = "Flat dark theme for PySide and PyQt."
+description = "The theme of KevinbotLib"
 authors = ["Yunosuke Ohsugi <63651161+5yutan5@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/5yutan5/PyQtDarkTheme"
+repository = "https://github.com/meowmeowahr/kevinbotlib-theme"
 homepage = "https://github.com/5yutan5/PyQtDarkTheme"
 documentation = "https://pyqtdarktheme.readthedocs.io"
 packages = [{ include = "qdarktheme" }]
 
-keywords = ["qt", "stylesheets", "dark-theme"]
+keywords = ["qt", "stylesheets", "dark-theme", "kevinbotlib"]
 
 classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
@@ -28,8 +28,8 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<3.12"
-darkdetect = "^0.7.1"
+python = ">=3.7,<4.0"
+darkdetect = "^0.8.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"
