@@ -60,18 +60,6 @@ QToolTip {
     color: {{ foreground|color }};
 }
 
-/* QSizeGrip --------------------------------------------------------------
-
-There is no size grip in modern apps. So we hide size grip.
-examples: https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qsizegrip
-
---------------------------------------------------------------------------- */
-QSizeGrip {
-    width: 0;
-    height: 0;
-    image: none;
-}
-
 /* QStatusBar -------------------------------------------------------------
 
 examples: https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qstatusbar
@@ -90,14 +78,7 @@ QStatusBar QWidget {
     padding: 3px;
     border-radius: {{ corner-shape|corner(size=4) }}px;
 }
-/*
-`QStatusBar QWidget` selector also override QSizeGrip rule.
-The QSizeGrip should be hidden on this qss, but the padding is set by `QStatusBar QWidget`.
-Remove padding of QSizeGrip after `QStatusBar QWidget` sets `padding: 3px`.
-*/
-QStatusBar > .QSizeGrip {
-    padding: 0;
-}
+
 QStatusBar QWidget:hover {
     background: {{ statusBarItem.hoverBackground|color }};
 }
@@ -859,17 +840,20 @@ QAbstractScrollArea > .QWidget > .QWidget {
 
 --------------------------------------------------------------------------- */
 QMdiArea {
-    qproperty-background: {{ background|color(state="panel") }};
+    background-color: {{ background|color(state="panel") }};
     border-radius: 0;
 }
 
 QMdiSubWindow {
     background: {{ background|color }};
-    border: 1px solid;
-    padding: 0 3px;
+    border: 1px solid {{ border|color }};
 }
 QMdiSubWindow > QWidget {
     border: 1px solid {{ border|color }};
+}
+
+#SimulatorMdiTitleBar {
+    background: {{background|color(state="popup")}};
 }
 
 /* QTextEdit QPlainTextEdit------------------------------------------------
