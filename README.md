@@ -1,4 +1,4 @@
-# PyQtDarkTheme
+# KevinbotLib Theme (Based on PyQtDarkTheme)
 
 PyQtDarkTheme applies a flat dark theme to QtWidgets application. There's a light theme too. Color balanced from the dark theme for easy viewing in daylight.
 
