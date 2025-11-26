@@ -25,7 +25,7 @@ from qdarktheme._icon.svg import Svg
 )
 def test_svg(mocker, rgba, rotate, svg_source, expected_result):
     """Verify that Svg class build correct SVG."""
-    mocker.patch("qdarktheme._icon.svg._svg_resources", return_value={"dummy": svg_source})
+    mocker.patch("kevinbotlib_theme._icon.svg._svg_resources", return_value={"dummy": svg_source})
     assert str(Svg("dummy").colored(Color.from_rgba(*rgba)).rotate(rotate)) == expected_result
 
 

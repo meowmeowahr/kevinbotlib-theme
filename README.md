@@ -61,11 +61,11 @@ import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
 
-import qdarktheme
+import kevinbotlib_theme
 
 app = QApplication(sys.argv)
 # Apply the complete dark theme to your Qt App.
-qdarktheme.setup_theme()
+kevinbotlib_theme.setup_theme()
 
 main_win = QMainWindow()
 push_button = QPushButton("PyQtDarkTheme!!")

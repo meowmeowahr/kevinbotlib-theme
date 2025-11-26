@@ -72,7 +72,7 @@ def test_stop_sync(qapp) -> None:
 
 def test_setup_theme_without_qapp(mocker) -> None:
     """Verify we raise Exception when qapp is none."""
-    mocker.patch("qdarktheme.qtpy.QtCore.QCoreApplication.instance", return_value=None)
+    mocker.patch("kevinbotlib_theme.qtpy.QtCore.QCoreApplication.instance", return_value=None)
     with pytest.raises(
         Exception, match=re.escape("setup_theme() must be called after instantiation of QApplication.")
     ):
@@ -88,5 +88,5 @@ if platform.system() == "Darwin":
         qapp.setPalette(QPalette())
         mocker.patch("darkdetect.theme", return_value="dark")
         qapp.setPalette(QPalette())
-        mocker.patch("qdarktheme._os_appearance.accent", return_value="red")
+        mocker.patch("kevinbotlib_theme._os_appearance.accent", return_value="red")
         qapp.setPalette(QPalette())

@@ -1,4 +1,4 @@
-"""Main module for building style resources for qdarktheme."""
+"""Main module for building style resources for kevinbotlib_theme."""
 from __future__ import annotations
 
 import json
@@ -28,7 +28,7 @@ Created by the `PyQtDarkTheme/tools/build_styles`.
 
 
 def _get_dist_path() -> Path:
-    return Path(__file__).parent.parent.parent / "qdarktheme" / "_resources"
+    return Path(__file__).parent.parent.parent / "kevinbotlib_theme" / "_resources"
 
 
 def _remove_qss_comment(stylesheet: str) -> str:
@@ -42,7 +42,7 @@ def _mk_root_init_file(output: Path, themes: list[str], doc_string: str) -> None
     themes.append("auto")
 
     code = f"{doc_string}\n"
-    code += "from qdarktheme._resources import "
+    code += "from kevinbotlib_theme._resources import "
     code += "colors, palette, stylesheets, svg\n\n"
     code += f"""THEMES = {str(tuple(themes)).replace("'", '"')}\n"""
     (output / "__init__.py").write_text(code)
@@ -98,7 +98,7 @@ def _mk_standard_icon_map(icon_map_file: Path, output: Path):
         )
 
     code = '"""Icon map that overrides standard icons."""\n'
-    code += "from qdarktheme.qtpy.QtWidgets import QStyle\n\n"
+    code += "from kevinbotlib_theme.qtpy.QtWidgets import QStyle\n\n"
     code += "NEW_STANDARD_ICON_MAP = "
     code += icon_map_code.replace("'", '"') + "\n"
     code += add_icon_to_map_code.replace("'", '"')
@@ -220,7 +220,7 @@ def _compare_all_files(dir1: Path, dir2: Path) -> list[str]:
 
 
 def main() -> None:
-    """Build style resources for qdarktheme."""
+    """Build style resources for kevinbotlib_theme."""
     dist_dir_path = _get_dist_path()
 
     with TemporaryDirectory() as temp_dir:
@@ -228,11 +228,11 @@ def main() -> None:
         # Refresh dist dir
         changed_files = _compare_all_files(dist_dir_path, Path(temp_dir))
         if len(changed_files) == 0:
-            logging.info("There is no change of qdarktheme module")
+            logging.info("There is no change of kevinbotlib_theme module")
             return
 
         shutil.rmtree(dist_dir_path, ignore_errors=True)
         shutil.copytree(temp_dir, dist_dir_path)
 
     logging.info("Build finished!")
-    logging.info("Changed some contents in qdarktheme module: %s", changed_files)
+    logging.info("Changed some contents in kevinbotlib_theme module: %s", changed_files)
