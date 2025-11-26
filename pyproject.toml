@@ -1,6 +1,6 @@
 [project]
 name = "kevinbotlib-theme"
-version = "0.1.0"
+version = "0.2.0"
 description = "The theme of KevinbotLib"
 authors = [
     { name = "Yunosuke Ohsugi", email = "63651161+5yutan5@users.noreply.github.com" },
